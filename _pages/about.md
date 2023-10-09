@@ -8,13 +8,16 @@ redirect_from:
   - /about.html
 ---
 
-I am a third year PhD student in the Mechanical Engineering department at Virginia Tech. My advisor is Prof. [Dylan Losey](https://dylanlosey.com/), and I spend most of my time working in [Collab](https://collab.me.vt.edu/). 
+**I am actively looking for industrial research positions. Please contact me if you have openings.**
+
+I am a fourth year PhD student in the Mechanical Engineering department at Virginia Tech. My advisor is Prof. [Dylan Losey](https://dylanlosey.com/), and I spend most of my time working in [Collab](https://collab.me.vt.edu/). 
 
 Prior to joining Virginia Tech, I was employed as a Robotics Engineer at Parker Hannifin Corporation, and before that I received my MS in Robotics Engineering from the Worcester Polytechnic Institute (WPI), MA.
 
 My current research is in the areas of Robot Learning and Human Robot Interaction.
 
 # News
+- [9/9/2023] I passed my prelims. I am a PhD candidate!
 - [8/25/2022] I'm back from my internship at ABB! I spent the summer working on instance segmentation for small parcel singulation.
 - [6/6/2022] I started my internship at ABB Robotics!
 - [1/31/2022] Our paper "Communicating Robot Conventions through Shared Autonomy" is accepted at the IEEE International Conference on Robotics and Automation (ICRA).
