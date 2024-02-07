@@ -10,7 +10,7 @@ redirect_from:
 
 **I am actively looking for industrial research positions. Please contact me if you have openings.**
 
-I am a fourth year PhD student in the Mechanical Engineering department at Virginia Tech. My advisor is Prof. [Dylan Losey](https://dylanlosey.com/), and I spend most of my time working in [Collab](https://collab.me.vt.edu/). 
+I am a final year PhD student in the Mechanical Engineering department at Virginia Tech. My advisor is Prof. [Dylan Losey](https://dylanlosey.com/), and I spend most of my time working in [Collab](https://collab.me.vt.edu/). 
 
 Prior to joining Virginia Tech, I was employed as a Robotics Engineer at Parker Hannifin Corporation, and before that I received my MS in Robotics Engineering from the Worcester Polytechnic Institute (WPI), MA.
 
