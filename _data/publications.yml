@@ -1,3 +1,11 @@
+- title: "SARI: Shared Autonomy across Repeated Interaction"
+  authors: Ananth Jonnavittula, Shaunak A. Mehta, Dylan P. Losey
+  venue: "ACM Transactions on Human-Robot Interaction (THRI)"
+  year: 2024
+  note: ""
+  pdf: /pdfs/ananth_thri2024.pdf
+  figure: /images/publications/ananth_thri2024.png
+
 - title: "Communicating Robot Conventions through Shared Autonomy"
   authors: Ananth Jonnavittula, Dylan P. Losey
   venue: "IEEE International Conference on Robotics and Automation (ICRA)"
