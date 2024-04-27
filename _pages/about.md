@@ -17,6 +17,7 @@ Prior to joining Virginia Tech, I was employed as a Robotics Engineer at Parker 
 My current research is in the areas of Robot Learning and Human Robot Interaction.
 
 # News
+- [04/27/2024] I submitted my final paper as a PhD student! It focuses on teaching robots using only human video demonstrations. Link [here](https://www.ananth.fyi/pdfs/ananth_auro2024.pdf)
 - [2/16/2024] Our paper "SARI: Shared Autonomy across Repeated Interaction" is accepted at the ACM Transactions on Human Robot Interaction (THRI).
 - [9/9/2023] I passed my prelims. I am a PhD candidate!
 - [8/25/2022] I'm back from my internship at ABB! I spent the summer working on instance segmentation for small parcel singulation.
