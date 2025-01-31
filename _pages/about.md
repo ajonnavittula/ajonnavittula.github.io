@@ -8,16 +8,14 @@ redirect_from:
   - /about.html
 ---
 
-**I am actively looking for industrial research positions. Please contact me if you have openings.**
 
-I am a final year PhD student in the Mechanical Engineering department at Virginia Tech. My advisor is Prof. [Dylan Losey](https://dylanlosey.com/), and I spend most of my time working in [Collab](https://collab.me.vt.edu/). 
+I am an AI Researcher at [Foundation Inc](https://foundation.bot/). I am working on World Models and Imitation Learning for Humanoid Robots. Prior to this, I received my PhD in Robotics from the Mechanical Engineering department at Virginia Tech. I was advised by Prof. [Dylan Losey](https://dylanlosey.com/), and I was part of [Collab](https://collab.me.vt.edu/). 
 
-Prior to joining Virginia Tech, I was employed as a Robotics Engineer at Parker Hannifin Corporation, and before that I received my MS in Robotics Engineering from the Worcester Polytechnic Institute (WPI), MA.
-
-My current research is in the areas of Robot Learning and Human Robot Interaction.
+Before joining Virginia Tech, I was employed as a Robotics Engineer at Parker Hannifin Corporation, and previous to that I received my MS in Robotics Engineering from the Worcester Polytechnic Institute (WPI), MA.
 
 # News
-- [04/27/2024] I submitted my final paper as a PhD student! It focuses on teaching robots using only human video demonstrations. Link [here](https://www.ananth.fyi/pdfs/ananth_auro2024.pdf)
+- [1/15/2025] My final paper as a PhD student was accepted at AuRo. Check it out [here](https://link.springer.com/article/10.1007/s10514-024-10188-y).
+- [11/20/2024] I accepted a job at Foundation Inc. I will be working on imitation learning for humanoids.
 - [2/16/2024] Our paper "SARI: Shared Autonomy across Repeated Interaction" is accepted at the ACM Transactions on Human Robot Interaction (THRI).
 - [9/9/2023] I passed my prelims. I am a PhD candidate!
 - [8/25/2022] I'm back from my internship at ABB! I spent the summer working on instance segmentation for small parcel singulation.
