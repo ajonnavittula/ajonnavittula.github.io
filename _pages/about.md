@@ -9,7 +9,7 @@ redirect_from:
 ---
 
 
-I am an AI Researcher at [Foundation Inc](https://foundation.bot/). I am working on World Models and Imitation Learning for Humanoid Robots. Prior to this, I received my PhD in Robotics from the Mechanical Engineering department at Virginia Tech. I was advised by Prof. [Dylan Losey](https://dylanlosey.com/), and I was part of [Collab](https://collab.me.vt.edu/). 
+I am currently a Senior Research Engineer at [Samsung Research America](https://sra.samsung.com/). Previously I was an AI Researcher at [Foundation Inc](https://foundation.bot/). I am working on Imitation Learning for Humanoid Robots. Prior to this, I received my PhD in Robotics from the Mechanical Engineering department at Virginia Tech. I was advised by Prof. [Dylan Losey](https://dylanlosey.com/), and I was part of [Collab](https://collab.me.vt.edu/). 
 
 Before joining Virginia Tech, I was employed as a Robotics Engineer at Parker Hannifin Corporation, and previous to that I received my MS in Robotics Engineering from the Worcester Polytechnic Institute (WPI), MA.
 
