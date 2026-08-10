@@ -23,6 +23,12 @@
 <meta name="msapplication-config" content="{{ base_path }}/images/browserconfig.xml?v=M44lzPylqQ">
 <meta name="theme-color" content="#ffffff">
 <link rel="stylesheet" href="{{ base_path }}/assets/css/academicons.css"/>
+<!-- Font Awesome 7, loaded as static CSS rather than built from Sass —
+     the vendored 5.5-era source (2018) doesn't map onto FA7's rewritten
+     build system. v4-shims covers the handful of old-style names
+     (fa-clock-o, fa-map-marker, etc.) still used in a few includes. -->
+<link rel="stylesheet" href="{{ base_path }}/assets/css/fontawesome.min.css"/>
+<link rel="stylesheet" href="{{ base_path }}/assets/css/fontawesome-v4-shims.min.css"/>
 
 <script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } }); </script>
 <script type="text/x-mathjax-config">

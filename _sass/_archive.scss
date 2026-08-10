@@ -4,14 +4,11 @@
 
 .archive {
   margin-bottom: 2em;
+  /* placed via #main's grid (see _page.scss) — shares .page's column */
+  grid-column: 2;
 
-  @include breakpoint($medium) {
-    @include span(12 of 12);
-  }
-
-  @include breakpoint($large) {
-    @include span(10 of 12 last);
-    @include prefix(0.5 of 12);
+  @include bp-max($large) {
+    grid-column: 1;
   }
 
   a {
@@ -90,18 +87,8 @@
    ========================================================================== */
 
 .list__item {
-  @include breakpoint($medium) {
-    padding-right: $right-sidebar-width-narrow;
-  }
-
-  @include breakpoint($large) {
-    padding-right: $right-sidebar-width;
-  }
-
-  @include breakpoint($x-large) {
-    padding-right: $right-sidebar-width-wide;
-  }
-
+  /* archive/listing pages never render a TOC, so (unlike .page) there's
+     nothing to reserve this space for — it was dead padding before */
   .page__meta {
     margin: 0 0 4px;
   }
@@ -112,8 +99,18 @@
    Grid view
    ========================================================================== */
 
+.grid__wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5em;
+
+  @include bp($medium) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 .grid__item {
-  margin-bottom: 2em;
+  margin-bottom: 0;
 
   .page__meta {
     margin: 0 0 4px;
@@ -128,18 +125,11 @@
     display: none;
   }
 
-  @include breakpoint($small) {
-    @include gallery(5 of 10);
-    .archive__item-teaser {
-      max-height: 200px;
-    }
+  .archive__item-teaser {
+    max-height: 200px;
   }
 
-  @include breakpoint($medium) {
-    margin-left: 0; /* reset before mixin does its thing*/
-    margin-right: 0; /* reset before mixin does its thing*/
-    @include gallery(2.5 of 10);
-
+  @include bp($medium) {
     .archive__item-teaser {
       max-height: 120px;
     }
@@ -156,8 +146,13 @@
    Features
    ========================================================================== */
 
+/* Feature layout — not currently used anywhere on this site, kept
+   compiling with plain flex/grid instead of Susy's span/prefix/suffix */
+
 .feature__wrapper {
-  @include clearfix();
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5em;
   margin-bottom: 2em;
   border-bottom: 1px solid $border-color;
 }
@@ -166,9 +161,9 @@
   margin-bottom: 2em;
   font-size: 1.25rem;
 
-  @include breakpoint($small) {
+  @include bp($small) {
     margin-bottom: 0;
-    @include gallery(4 of 12);
+    flex: 1 1 30%;
 
     .feature__item-teaser {
       max-height: 200px;
@@ -176,69 +171,61 @@
     }
   }
 
-  &--left {
-    @include full();
+  &--left,
+  &--right,
+  &--center {
+    width: 100%;
     font-size: 1.25rem;
 
     .archive__item-teaser {
       margin-bottom: 2em;
     }
+  }
 
-    @include breakpoint($small) {
+  &--left {
+    @include bp($small) {
+      display: flex;
+      gap: 2em;
+
       .archive__item-teaser {
-        @include span(5 of 12);
+        flex: 0 0 41.6667%;
       }
 
       .archive__item-body {
-        @include span(7 of 12 last);
-        @include prefix(0.5 of 12);
-        @include suffix(1 of 12);
+        flex: 1 1 0%;
       }
     }
   }
 
   &--right {
-    @include full();
-    font-size: 1.25rem;
-
-    .archive__item-teaser {
-      margin-bottom: 2em;
-    }
-
-    @include breakpoint($small) {
+    @include bp($small) {
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 2em;
       text-align: right;
 
       .archive__item-teaser {
-        @include span(5 of 12 rtl);
+        flex: 0 0 41.6667%;
       }
 
       .archive__item-body {
-        @include span(7 of 12 last rtl);
-        @include prefix(0.5 of 12);
-        @include suffix(1 of 12);
+        flex: 1 1 0%;
       }
     }
   }
 
   &--center {
-    @include full();
-    font-size: 1.25rem;
-
-    .archive__item-teaser {
-      margin-bottom: 2em;
-    }
-
-    @include breakpoint($small) {
+    @include bp($small) {
       text-align: center;
 
       .archive__item-teaser {
         margin: 0 auto;
-        width: span(5 of 12);
+        width: 41.6667%;
       }
 
       .archive__item-body {
         margin: 0 auto;
-        width: span(7 of 12);
+        width: 58.3333%;
       }
     }
   }

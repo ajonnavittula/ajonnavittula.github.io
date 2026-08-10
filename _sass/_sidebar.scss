@@ -10,11 +10,13 @@
   -webkit-transform: translate3d(0, 0 , 0);
           transform: translate3d(0, 0 , 0);
 
-  @include clearfix();
   margin-bottom: 1em;
 
-  @include breakpoint($large) {
-    @include span(2 of 12);
+  @include bp($large) {
+    /* placed via #main's grid (see _page.scss) — just needs a sensible
+       column width here, no Susy span math */
+    grid-column: 1;
+    width: 200px;
     opacity: 1;
     -webkit-transition: opacity 0.2s ease-in-out;
             transition: opacity 0.2s ease-in-out;
@@ -25,7 +27,7 @@
   }
 
 
-  @include breakpoint($x-large) {
+  @include bp($x-large) {
     padding-right: 0;
   }
 
@@ -52,15 +54,15 @@
 .sidebar__right {
   margin-bottom: 1em;
 
-  @include breakpoint($large) {
+  @include bp($large) {
     position: relative;
     float: right;
     width: $right-sidebar-width-narrow;
-    margin-left: span(0.5 of 12);
+    margin-left: 2em;
     z-index: 10;
   }
 
-  @include breakpoint($x-large) {
+  @include bp($x-large) {
     width: $right-sidebar-width;
   }
 }
@@ -76,7 +78,7 @@
   // set width only, for non-square avatars
   // height: 36px;
 
-  @include breakpoint($large) {
+  @include bp($large) {
     display: block;
     width: auto;
     height: auto;
@@ -86,7 +88,7 @@
     max-width: 175px;
     border-radius: 50%;
 
-    @include breakpoint($large) {
+    @include bp($large) {
       padding: 5px;
       border: 1px solid $border-color;
     }
@@ -100,7 +102,7 @@
   padding-right: 25px;
   line-height: 1;
 
-  @include breakpoint($large) {
+  @include bp($large) {
     display: block;
     width: 100%;
     padding-left: 0;
@@ -111,7 +113,7 @@
 .author__name {
   margin: 0;
 
-  @include breakpoint($large) {
+  @include bp($large) {
     margin-top: 10px;
     margin-bottom: 10px;
   }
@@ -124,7 +126,7 @@
 .author__bio {
   margin: 0;
 
-  @include breakpoint($large) {
+  @include bp($large) {
     margin-top: 10px;
     margin-bottom: 20px;
   }
@@ -145,14 +147,14 @@
     }
   }
 
-  @include breakpoint($large) {
+  @include bp($large) {
     display: block;
   }
 
   button {
     margin-bottom: 0;
 
-    @include breakpoint($large) {
+    @include bp($large) {
       display: none;
     }
   }
@@ -172,7 +174,7 @@
   box-shadow: 0 0 10px rgba(#000, 0.25);
   cursor: default;
 
-  @include breakpoint($large) {
+  @include bp($large) {
     display: block;
     position: relative;
     margin: 0;
@@ -194,7 +196,7 @@
     border-color: $border-color transparent;
     z-index: 0;
 
-    @include breakpoint($large) {
+    @include bp($large) {
       display: none;
     }
   }
@@ -211,7 +213,7 @@
     border-color: var(--color-bg-elevated) transparent;
     z-index: 1;
 
-    @include breakpoint($large) {
+    @include bp($large) {
       display: none;
     }
   }

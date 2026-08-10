@@ -84,45 +84,27 @@ $masthead-link-color-hover  : var(--color-text);
    Breakpoints
    ========================================================================== */
 
-@include breakpoint-set("to ems", true);
-/*
-$small                      : 400px;
-$medium                     : 500px;
-$medium-wide                : 550px;
-$large                      : 1200px;
-$x-large                    : 1800px;
-*/
-
-$small                      : 600px !default;
-$medium                     : 768px !default;
-$medium-wide                : 900px !default;
-$large                      : 925px !default;
-$x-large                    : 1280px !default;
+/* plain px — the bp()/bp-max() mixins (_mixins.scss) convert to em
+   internally for the actual @media query, matching what the old
+   Breakpoint library used to output. Kept as px here since several
+   of these are also used directly as max-width/width values, where
+   an em would scale with the page's own font-size instead of staying
+   fixed. */
+$small                      : 600px;
+$medium                     : 768px;
+$medium-wide                : 900px;
+$large                      : 925px;
+$x-large                    : 1280px;
 
 /*
    Grid
    ========================================================================== */
 
-$right-sidebar-width-narrow : 0px;
-$right-sidebar-width        : 0px;
-$right-sidebar-width-wide   : 0px;
-
-$susy: (
-  columns: 12,
-  column-width: 120px,
-  gutters: 1/4,
-  math: fluid,
-  output: float,
-  gutter-position: after,
-  container: $large,
-  global-box-sizing: border-box,
-  // debug: (
-  //   image: show,
-  //   color: blue,
-  //   output: overlay,
-  //   toggle: top right,
-  // ),
-);
+/* zeroed out in the original fork (no blog posts, no TOC in use);
+   restored to stock Minimal Mistakes values now that posts use a TOC */
+$right-sidebar-width-narrow : 200px;
+$right-sidebar-width        : 200px;
+$right-sidebar-width-wide   : 300px;
 
 
 /*

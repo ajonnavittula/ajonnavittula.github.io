@@ -10,11 +10,9 @@
  *
 */
 
-@import "vendor/breakpoint/breakpoint"; // media query mixins
 @import "theme"; // Catppuccin custom properties (light/dark)
 @import "variables";
-@import "mixins";
-@import "vendor/susy/susy";
+@import "mixins"; // bp()/bp-max()/container() replace vendored Breakpoint + Susy
 
 @import "reset";
 @import "base";
@@ -35,8 +33,8 @@
 @import "archive";
 @import "sidebar";
 
-@import "vendor/font-awesome/fontawesome";
-@import "vendor/font-awesome/solid";
-@import "vendor/font-awesome/brands";
+// Font Awesome 7 is now loaded as static precompiled CSS
+// (assets/css/fontawesome.min.css) linked from head/custom.html, not
+// built from Sass source — see that file for why.
 @import "vendor/magnific-popup/magnific-popup";
 @import "print";

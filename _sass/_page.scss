@@ -2,34 +2,62 @@
    SINGLE PAGE/POST
    ========================================================================== */
 
+/* #main can hold up to three children: the (optional) left author
+   sidebar, the .page article, and an (optional) .page__related block
+   that should stack *below* .page while the sidebar stays put beside
+   both — a grid with an auto-width first column handles that cleanly
+   (and collapses to zero width on its own when .sidebar isn't in the
+   DOM, no empty-gutter special-casing needed). */
 #main {
   @include container;
-  @include clearfix;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 3em;
   margin-top: 2em;
   padding-left: 1em;
   padding-right: 1em;
   animation: intro 0.3s both;
   animation-delay: 0.35s;
 
-  @include breakpoint($x-large) {
+  @include bp($x-large) {
     max-width: $x-large;
+  }
+
+  @include bp-max($large) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.page,
+.page__related {
+  grid-column: 2;
+
+  @include bp-max($large) {
+    grid-column: 1;
   }
 }
 
 .page {
-  @include breakpoint($large) {
-    @include span(10 of 12 last);
-    @include prefix(0.5 of 12);
-    @include suffix(2 of 12);
+  /* reserve room for the floated TOC (.sidebar__right, nested inside
+     .page__content) so it doesn't overlap the text below the large
+     breakpoint, matching its actual configured width instead of a
+     generic reserved column */
+  @include bp($large) {
+    padding-right: $right-sidebar-width-narrow;
+  }
+
+  @include bp($x-large) {
+    padding-right: $right-sidebar-width;
   }
 
   .page__inner-wrap {
-    @include full();
+    width: 100%;
 
     .page__content,
     .page__meta,
     .page__share {
-      @include full();
+      width: 100%;
     }
   }
 }
@@ -133,7 +161,7 @@
       padding-left: 1em;
       padding-right: 1em;
 
-      @include breakpoint($x-large) {
+      @include bp($x-large) {
         max-width: $x-large;
       }
     }
@@ -153,7 +181,7 @@
     .page__title {
       font-size: $type-size-2;
 
-      @include breakpoint($small) {
+      @include bp($small) {
         font-size: $type-size-1;
       }
     }
@@ -181,7 +209,7 @@
   opacity: 0.5;
   border-radius: $border-radius 0 $border-radius 0;
 
-  @include breakpoint($large) {
+  @include bp($large) {
     padding: 5px 10px;
   }
 
@@ -200,7 +228,7 @@
   padding-top: 1em;
   border-top: 1px solid $border-color;
 
-  @include breakpoint(max-width $small) {
+  @include bp-max($small) {
     .btn span {
       border: 0;
       clip: rect(0 0 0 0);
@@ -282,7 +310,7 @@
    ========================================================================== */
 
 .page__comments {
-  @include full();
+  width: 100%;
 }
 
 .page__comments-title {
@@ -327,7 +355,7 @@
   width: 60px;
   height: 60px;
 
-  @include breakpoint($large) {
+  @include bp($large) {
     width: 100px;
     height: 100px;
   }
@@ -338,7 +366,7 @@
   height: 40px;
   border-radius: 50%;
 
-  @include breakpoint($large) {
+  @include bp($large) {
     width: 80px;
     height: 80px;
     padding: 5px;
@@ -350,7 +378,7 @@
   float: right;
   width: calc(100% - 60px);
 
-  @include breakpoint($large) {
+  @include bp($large) {
     width: calc(100% - 100px);
   }
 }
@@ -381,12 +409,8 @@
   margin-top: 2em;
   padding-top: 1em;
   border-top: 1px solid $border-color;
-  @include clearfix();
-  float: left;
-
-  @include breakpoint($large) {
-    @include pre(2.5 of 12);
-  }
+  /* grid placement (shared with .page above) already aligns this under
+     the main content column — no float/indent math needed */
 
   a {
     color: inherit;
