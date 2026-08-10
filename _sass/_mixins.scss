@@ -2,17 +2,22 @@
    MIXINS
    ========================================================================== */
 
-@use "sass:math";
-
 /*
    Breakpoints (replaces the vendored Breakpoint library)
    ========================================================================== */
 
 /* matches Breakpoint's previous "to ems" output exactly, so every
    existing @media trigger point is unchanged — just no longer routed
-   through a 2015-era Sass library to get there */
+   through a 2015-era Sass library to get there.
+   Plain "/" division on purpose, not math.div(): GitHub Pages actually
+   builds with jekyll-sass-converter 1.5.2 / Ruby Sass 3.7.4 (see the CI
+   log from the f6f0dc1 build failure), which predates Dart Sass's @use
+   module system entirely — math.div() doesn't parse there at all. Local
+   testing with `npx sass` uses modern Dart Sass and isn't a faithful
+   stand-in for that; "/" is the one syntax both understand, at the cost
+   of a harmless deprecation warning under Dart Sass. */
 @function to-em($px) {
-  @return math.div($px, 16px) * 1em;
+  @return ($px / 16px) * 1em;
 }
 
 @mixin bp($min) {
