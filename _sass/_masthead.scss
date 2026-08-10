@@ -41,6 +41,12 @@
 }
 
 .masthead__menu {
+  /* fill the row instead of shrinking to content width — otherwise the
+     nav is squeezed down to its min-width and greedy-nav's overflow
+     script (which measures actual rendered width) collapses links into
+     the hamburger dropdown even though there's plenty of room */
+  flex: 1 1 auto;
+  min-width: 0;
 
   ul {
     margin: 0;
