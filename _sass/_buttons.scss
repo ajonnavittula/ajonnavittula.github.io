@@ -119,8 +119,6 @@
 
   $social:
   (facebook, $facebook-color),
-  (twitter, $twitter-color),
-  (google-plus, $google-plus-color),
   (linkedin, $linkedin-color);
 
   @each $socialnetwork, $color in $social {
@@ -130,6 +128,17 @@
       &:hover {
         background-color: color-mix(in srgb, $color 80%, black);
       }
+    }
+  }
+
+  /* X's mark is monochrome and inverts with light/dark contexts (as X's
+     own UI does), rather than a fixed brand hex */
+  &--twitter {
+    color: var(--color-bg) !important;
+    background-color: var(--color-text);
+
+    &:hover {
+      background-color: var(--color-text-muted);
     }
   }
 

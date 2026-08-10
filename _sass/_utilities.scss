@@ -180,20 +180,28 @@ body:hover .visually-hidden button {
   vertical-align: middle;
 }
 
-/* social icons*/
+/* fa-fw-equivalent fixed width so hand-drawn SVG icons (e.g. icon-x.html)
+   line up with the Font Awesome glyphs they sit next to in social lists */
+.icon-inline {
+  display: inline-block;
+  width: 1.25em;
+  height: 0.9em;
+  vertical-align: -0.05em;
+  fill: none;
+}
+
+/* social icons — only the brands actually linked from this site:
+   GitHub/X/LinkedIn read as plain icons next to text in the footer and
+   author sidebar, so they're left uncolored to inherit from context
+   (theme-aware black/white) — keeps them visually consistent with each
+   other rather than one going blue while the others go monochrome.
+   Facebook/LinkedIn still get their brand colors on the share buttons
+   (see _buttons.scss), where a colored fill helps tell targets apart.
+   RSS keeps its brand color for the feed link. */
 
 .social-icons {
   .fa {
     color: var(--color-text);
-  }
-
-  .fa-behance,
-  .fa-behance-square {
-    color: $behance-color;
-  }
-
-  .fa-dribbble {
-    color: $dribbble-color;
   }
 
   .fa-facebook,
@@ -201,87 +209,9 @@ body:hover .visually-hidden button {
     color: $facebook-color;
   }
 
-  .fa-flickr {
-    color: $flickr-color;
-  }
-
-  .fa-foursquare {
-    color: $foursquare-color;
-  }
-
-  .fa-github,
-  .fa-github-alt,
-  .fa-github-square {
-    color: $github-color;
-  }
-
-  .fa-google-plus,
-  .fa-google-plus-square {
-    color: $google-plus-color;
-  }
-
-  .fa-instagram {
-    color: $instagram-color;
-  }
-
-  .fa-lastfm,
-  .fa-lastfm-square {
-    color: $lastfm-color;
-  }
-
-  .fa-linkedin,
-  .fa-linkedin-square {
-    color: $linkedin-color;
-  }
-
-  .fa-pinterest,
-  .fa-pinterest-p,
-  .fa-pinterest-square {
-    color: $pinterest-color;
-  }
-
   .fa-rss,
   .fa-rss-square {
     color: $rss-color;
-  }
-
-  .fa-soundcloud {
-    color: $soundcloud-color;
-  }
-
-  .fa-stack-exchange,
-  .fa-stack-overflow {
-    color: $stackoverflow-color;
-  }
-
-  .fa-tumblr,
-  .fa-tumblr-square {
-    color: $tumblr-color;
-  }
-
-  .fa-twitter,
-  .fa-twitter-square {
-    color: $twitter-color;
-  }
-
-  .fa-vimeo,
-  .fa-vimeo-square {
-    color: $vimeo-color;
-  }
-
-  .fa-vine {
-    color: $vine-color;
-  }
-
-  .fa-youtube,
-  .fa-youtube-square,
-  .fa-youtube-play {
-    color: $youtube-color;
-  }
-
-  .fa-xing,
-  .fa-xing-square {
-    color: $xing-color;
   }
 }
 

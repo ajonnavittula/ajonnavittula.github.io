@@ -14,8 +14,17 @@
   &__inner-wrap {
     @include container;
     @include clearfix;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 1em 1em 1em;
     font-family: $sans-serif-narrow;
+
+    /* the clearfix mixin's generated pseudo-element would otherwise count
+       as a third flex item and throw off justify-content: space-between */
+    &::after {
+      content: none;
+    }
 
     @include breakpoint($x-large) {
       max-width: $x-large;

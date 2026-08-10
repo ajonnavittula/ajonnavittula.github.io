@@ -315,12 +315,13 @@
 
 .theme-toggle {
   display: inline-flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
   width: 2em;
   height: 2em;
   padding: 0;
-  margin: 0;
+  margin: 0 0 0 0.75em;
   color: var(--color-text-muted);
   background: transparent;
   border: 1px solid $border-color;
