@@ -9,7 +9,7 @@
 locale                   : "en-US"
 title                    : "Ananth Jonnavittula"
 title_separator          : "-"
-name                     : &name "Ananth Jonnavittula (AJ)"
+name                     : &name "Ananth Jonnavittula"
 description              : &description "personal description"
 url                      : https://ajonnavittula.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
@@ -101,7 +101,7 @@ author:
   location         : "San Francisco, CA"
   employer         :
   pubmed           :
-  googlescholar    : "https://scholar.google.com/citations?hl=en&user=58qJf0UAAAAJ&view_op=list_works&alert_preview_top_rm=2&authuser=1&sortby=pubdate"
+  googlescholar    : "https://scholar.google.com/citations?hl=en&user=4buigRMAAAAJ&view_op=list_works&sortby=pubdate"
   email            : "ananth.jonna@gmail.com"
   researchgate     : "https://www.researchgate.net/profile/Ananth-Jonnavittula"
   uri              :
