@@ -1,6 +1,16 @@
 {% include base_path %}
 
 <meta charset="utf-8">
+<meta name="color-scheme" content="light dark">
+
+<script>
+  (function () {
+    var stored = null;
+    try { stored = localStorage.getItem('theme'); } catch (e) {}
+    var theme = stored || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+  })();
+</script>
 
 {% include seo.html %}
 

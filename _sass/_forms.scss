@@ -19,7 +19,7 @@ form {
     padding: 0;
     color: $text-color;
     border: 0;
-    border-bottom: 1px solid mix(#fff, #000, 80%);
+    border-bottom: 1px solid var(--color-border);
     white-space: normal;
   }
 
@@ -80,13 +80,13 @@ select {
   padding: 0.25em;
   margin-bottom: 0.5em;
   color: $text-color;
-  background-color: #fff;
-  border: 1px solid mix(#fff, #000, 80%);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
   border-radius: $border-radius;
   box-shadow: $box-shadow;
 
   &:hover {
-    border-color: mix(#fff, $primary-color, 50%);
+    border-color: color-mix(in srgb, var(--color-primary) 50%, var(--color-bg));
   }
 }
 
@@ -151,7 +151,7 @@ input[type="file"] {
 
 select {
   width: auto;
-  background-color: #fff;
+  background-color: var(--color-bg);
 }
 
 select[multiple],
