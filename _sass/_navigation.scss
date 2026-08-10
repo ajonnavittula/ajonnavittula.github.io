@@ -335,7 +335,12 @@
     border-color: var(--color-border-strong);
   }
 
-  &__icon--dark {
+  /* nested (not &-concatenated) so this outranks Font Awesome's own
+     `.fas, .fab { display: inline-block; }` base rule, which is equal
+     specificity (one class) and imported later in main.scss — without
+     the extra .theme-toggle ancestor, that rule silently won the
+     cascade and the moon icon stayed visible in light mode */
+  .theme-toggle__icon--dark {
     display: none;
   }
 }
