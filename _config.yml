@@ -21,7 +21,7 @@ future                   : true
 read_more                : "disabled" # if enabled, adds "Read more" links to excerpts
 talkmap_link             : false #change to true to add link to talkmap on talks page
 comments:
-  provider               : # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "custom"
+  provider               : "giscus" # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "custom", "giscus"
   disqus:
     shortname            :
   discourse:
@@ -30,6 +30,21 @@ comments:
     appid                :
     num_posts            : # 5 (default)
     colorscheme          : # "light" (default), "dark"
+  giscus:
+    # Requires GitHub Discussions enabled on this repo, and the giscus
+    # app (https://github.com/apps/giscus) installed on it. Get repo_id
+    # and category_id by running the config generator at https://giscus.app
+    # once both of those are done — it reads them for you, no need to
+    # hand-craft API calls.
+    repo                 : "ajonnavittula/ajonnavittula.github.io"
+    repo_id              : "R_kgDOGmzBAg"
+    category             : "Comments" # or whichever discussion category you want to use
+    category_id          : # fill in from giscus.app
+    mapping              : "pathname" # matches each page's URL to its own discussion thread
+    strict               : "0"
+    reactions_enabled    : "1"
+    input_position       : "bottom"
+    theme                : "preferred_color_scheme" # follows the visitor's OS/browser preference; see note in giscus.html about matching our own toggle instead
 staticman:
   allowedFields          : ['name', 'email', 'url', 'message']
   branch                 : "gh-pages" # "master", "gh-pages"

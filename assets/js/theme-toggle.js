@@ -8,6 +8,16 @@
     try { localStorage.setItem('theme', theme); } catch (e) {}
     var btn = document.getElementById('theme-toggle');
     if (btn) btn.setAttribute('aria-pressed', theme === 'dark');
+
+    // keep an already-loaded giscus embed in sync — it only reads
+    // data-theme once at load, so a later toggle needs this instead
+    var giscusFrame = document.querySelector('iframe.giscus-frame');
+    if (giscusFrame) {
+      giscusFrame.contentWindow.postMessage(
+        { giscus: { setConfig: { theme: theme === 'dark' ? 'dark' : 'light' } } },
+        'https://giscus.app'
+      );
+    }
   }
 
   document.addEventListener('DOMContentLoaded', function () {

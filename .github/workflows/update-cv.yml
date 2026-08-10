@@ -1,0 +1,78 @@
+name: Update CV from Overleaf
+
+# Pulls the CV project from Overleaf (via its Git integration), compiles
+# it, and commits the resulting PDF to files/Ananth-CV.pdf if it changed
+# — so the CV only needs to be edited in Overleaf, not re-uploaded here
+# by hand.
+#
+# Requires:
+#   - Repo secret OVERLEAF_GIT_TOKEN (Overleaf account settings → Git
+#     integration → generate a token)
+#   - Overleaf project's Git integration enabled (project menu → Git)
+#
+# The auth line below (`https://git:$TOKEN@git.overleaf.com/...`) is a
+# reasonable guess at Overleaf's expected format — if the "Pull latest
+# from Overleaf" step fails on a real run, paste the log back and it's
+# a one-line fix once we see the actual error.
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "0 12 * * 1" # weekly, Monday 12:00 UTC — adjust as you like
+
+permissions:
+  contents: write
+
+jobs:
+  update-cv:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout site repo
+        uses: actions/checkout@v4
+
+      - name: Pull latest from Overleaf
+        env:
+          OVERLEAF_GIT_TOKEN: ${{ secrets.OVERLEAF_GIT_TOKEN }}
+          OVERLEAF_PROJECT_ID: "6509483042914a0dafed2655"
+        run: |
+          git clone "https://git:${OVERLEAF_GIT_TOKEN}@git.overleaf.com/${OVERLEAF_PROJECT_ID}" overleaf-cv
+
+      - name: Determine root .tex file
+        id: rootfile
+        run: |
+          if [ -f overleaf-cv/main.tex ]; then
+            echo "file=main.tex" >> "$GITHUB_OUTPUT"
+          else
+            count=$(find overleaf-cv -maxdepth 1 -name "*.tex" | wc -l)
+            if [ "$count" -eq 1 ]; then
+              file=$(find overleaf-cv -maxdepth 1 -name "*.tex" -printf "%f\n")
+              echo "file=$file" >> "$GITHUB_OUTPUT"
+            else
+              echo "::error::Couldn't determine the root .tex file automatically (found $count .tex files at the project's top level, no main.tex). Edit this workflow to hardcode the filename."
+              exit 1
+            fi
+          fi
+
+      - name: Compile CV
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: overleaf-cv
+          root_file: ${{ steps.rootfile.outputs.file }}
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+
+      - name: Copy compiled PDF into the site
+        run: |
+          base="$(basename "${{ steps.rootfile.outputs.file }}" .tex)"
+          cp "overleaf-cv/${base}.pdf" files/Ananth-CV.pdf
+
+      - name: Commit if the CV changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add files/Ananth-CV.pdf
+          if git diff --staged --quiet; then
+            echo "CV unchanged, nothing to commit."
+          else
+            git commit -m "Update CV from Overleaf"
+            git push
+          fi

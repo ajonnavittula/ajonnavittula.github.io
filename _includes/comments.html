@@ -77,5 +77,35 @@
     </section>
   {% when "custom" %}
     <section id="comments"></section>
+  {% when "giscus" %}
+    <h4 class="page__comments-title">{{ comments_label }}</h4>
+    <section id="giscus-comments">
+      <script>
+        (function () {
+          // giscus reads data-theme once, at the moment its script tag is
+          // parsed — set it from our own toggle's current state (already
+          // applied pre-paint by the anti-FOUC script in head.html) so the
+          // embed matches immediately instead of starting light and
+          // flashing to dark a beat later. theme-toggle.js keeps it in
+          // sync afterwards via postMessage when the visitor flips the
+          // toggle with giscus already on the page.
+          var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          var s = document.createElement('script');
+          s.src = 'https://giscus.app/client.js';
+          s.setAttribute('data-repo', '{{ site.comments.giscus.repo }}');
+          s.setAttribute('data-repo-id', '{{ site.comments.giscus.repo_id }}');
+          s.setAttribute('data-category', '{{ site.comments.giscus.category }}');
+          s.setAttribute('data-category-id', '{{ site.comments.giscus.category_id }}');
+          s.setAttribute('data-mapping', '{{ site.comments.giscus.mapping }}');
+          s.setAttribute('data-strict', '{{ site.comments.giscus.strict }}');
+          s.setAttribute('data-reactions-enabled', '{{ site.comments.giscus.reactions_enabled }}');
+          s.setAttribute('data-input-position', '{{ site.comments.giscus.input_position }}');
+          s.setAttribute('data-theme', isDark ? 'dark' : 'light');
+          s.crossOrigin = 'anonymous';
+          s.async = true;
+          document.getElementById('giscus-comments').appendChild(s);
+        })();
+      </script>
+    </section>
   {% endcase %}
 </div>
