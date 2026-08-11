@@ -100,7 +100,7 @@
           s.setAttribute('data-strict', '{{ site.comments.giscus.strict }}');
           s.setAttribute('data-reactions-enabled', '{{ site.comments.giscus.reactions_enabled }}');
           s.setAttribute('data-input-position', '{{ site.comments.giscus.input_position }}');
-          s.setAttribute('data-theme', isDark ? 'dark' : 'light');
+          s.setAttribute('data-theme', isDark ? 'catppuccin_mocha' : 'catppuccin_latte');
           s.crossOrigin = 'anonymous';
           s.async = true;
           document.getElementById('giscus-comments').appendChild(s);

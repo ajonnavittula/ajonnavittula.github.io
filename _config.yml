@@ -38,8 +38,8 @@ comments:
     # hand-craft API calls.
     repo                 : "ajonnavittula/ajonnavittula.github.io"
     repo_id              : "R_kgDOGmzBAg"
-    category             : "Comments" # or whichever discussion category you want to use
-    category_id          : # fill in from giscus.app
+    category             : "General"
+    category_id          : "DIC_kwDOGmzBAs4DDDLu"
     mapping              : "pathname" # matches each page's URL to its own discussion thread
     strict               : "0"
     reactions_enabled    : "1"
